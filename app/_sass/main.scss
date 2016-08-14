@@ -1,0 +1,11 @@
+$orange: #ff6600;
+$gray: #dee1e4;
+
+@import	"common/mixins";
+
+@import	"common/normalize";
+
+@import	"common/misc";
+
+@import "sections/header";
+@import "sections/footer";
