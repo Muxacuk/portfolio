@@ -1,0 +1,110 @@
+.title{
+	font-size: 2.1875em;
+	text-align: center;
+}
+.about-me{
+	background-color: #f2f0e8;
+	padding: 10px 0 25px;
+	position: relative;
+
+	.title{
+		margin-top: 0px;
+	}
+	&__title{
+		position: relative;
+		text-align: center;
+
+
+		&:after{
+			content: '';
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 56px;
+			height: 3px;
+			background-color: #000;
+			bottom: -10px;
+		}
+	}
+
+	&__photo{
+		width: 100%;
+	}
+	&__text{
+		padding: 10px;
+		text-align: justify;
+	}
+	&:before{
+		z-index: 0;
+		content: '';
+		position: absolute;
+		height: 180px;
+		width: 100%;
+		top: -180px;
+		left: 0px;
+		background-image: url(../pictures/bg.svg);
+		background-size: 103%;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+	}
+}
+.skills{
+	background-color: #f4f5f0;
+	padding: 15px 10px 25px;
+	text-align: justify;
+
+	&__title{
+		position: relative;
+		text-align: center;
+
+		&:after{
+			content: '';
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 56px;
+			height: 3px;
+			background-color: #000;
+			bottom: -10px;
+		}
+	}
+
+	&__types-list{
+		padding: 0px;
+	}
+	&__type-title{
+		text-align: center;
+		font-size: 1.3125em;
+		margin: 15px;
+	}
+	&__type{
+		margin-top: 25px;
+	}
+	&__item-list{
+		padding: 0px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	&__item{
+		display: inline-block;
+	}
+}
+.contacts{
+
+	&__title{
+		position: relative;
+
+		&:after{
+			content: '';
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 56px;
+			height: 3px;
+			background-color: #a1a3a9;
+			bottom: -10px;
+		}
+	}
+
+}

@@ -1,0 +1,32 @@
+main.main-content
+	section.about-me
+		h2.title ОБО МНЕ
+		img(src="img/my_photo.jpg", alt="Михаил Измайлов").about-me__photo
+		.about-me__text
+			h3.about-me__title КТО Я
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe dicta accusantium in accusamus temporibus mollitia et nobis doloribus est odio quam error illo ipsam veritatis neque at, ipsa suscipit omnis.
+	section.skills
+		h3.skills__title ЧЕМ Я МОГУ БЫТЬ <br> ВАМ ПОЛЕЗЕН
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, ea maiores ut ipsam dolorum debitis blanditiis delectus. Nisi, ipsum et, modi reiciendis porro, dignissimos quos deserunt perspiciatis rem ratione ullam.
+		ul.skills__types-list
+			-for(i=3; i; i--)
+				li.skills__type
+					h4.skills__type-title Frontend
+					ul.skills__item-list
+						-var items = {'HTML5':'90','CSS3':'85','<tspan dy="-10" dx="-5">JavaScript</tspan><tspan dy="15" dx="-50">& jQuery</tspan>':'70'}
+						-each val,index in items
+							li(data-name=index data-val=val).skills__item 
+								svg(width="110" height="110")
+									circle(cx="55" cy="55" r="45" stroke="#dfdcd5" stroke-width="20" fill="none")
+									path(d="M 55 10 A 45 45 0 0 1 100 55" fill="none" stroke="blue" stroke-width="20")
+									text( font-size="12" stroke="blue" stroke-width=".5" y="60" x="55" text-anchor="middle")!= index
+	section.contacts
+		h2.contacts__title.title КОНТАКТЫ
+		ul.contacts__list
+			-var contacts = {'skype_n':["m-izmaylov","callto:m-izmaylov"]};
+			-each val,index in contacts
+				li.contacts__item
+					a(href="#{val[1]}").contacts__link
+						+icon(index,'')
+						span= val[0]
