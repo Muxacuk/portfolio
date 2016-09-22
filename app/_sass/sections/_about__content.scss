@@ -2,10 +2,13 @@
 	font-size: 2.1875em;
 	text-align: center;
 }
+.main-content{
+	position: relative;
+	z-index: 3;
+}
 .about-me{
 	background-color: #f2f0e8;
 	padding: 10px 0 25px;
-	position: relative;
 
 	.title{
 		margin-top: 0px;
@@ -91,6 +94,8 @@
 	}
 }
 .contacts{
+	background-color: white;
+	padding: 5px;
 
 	&__title{
 		position: relative;
@@ -106,5 +111,29 @@
 			bottom: -10px;
 		}
 	}
+	&__list{
+		padding: 0 10px;
 
+	}
+	&__item{
+		list-style: none;
+		margin-top: 5px;
+	}
+	&__link{
+			color: #555;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+
+			.icon{
+				color: blue;
+				margin-right: 5px;
+				font-size: 32px;
+			}
+	}
+
+}
+.map{
+	height: 90vh;
+	width: 100%;
 }

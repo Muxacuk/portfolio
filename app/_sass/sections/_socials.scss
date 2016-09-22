@@ -1,0 +1,43 @@
+.socials{
+	font-size: 16px;
+
+	&__list{
+		display: flex;
+		align-items: center;
+		margin: 0px;
+		padding: 0px;
+	}
+	&__item{
+		list-style: none;
+
+		&:not(:first-child){
+			margin-left: 25px;
+		}
+	}
+	.icon{
+		font-size: 16px;
+		color: white;
+		
+		&:hover{
+			color: #2d47ce;
+		}
+	}
+}
+.socials_footer{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+
+	.socials__list{
+		justify-content: center;
+	}
+	.socials__link{
+		opacity: .6;
+		
+		&:hover{
+			opacity: 1;
+			.icon{
+				color: white;
+			}
+		}
+	}
+}

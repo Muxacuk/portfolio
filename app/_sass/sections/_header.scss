@@ -1,11 +1,19 @@
 .header{
-	background-image: url('../pictures/header_bg.jpg');
-	background-size: cover;
-	background-position: center;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	&__fixed{
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		background-image: url('../pictures/header_bg.jpg');
+		background-size: cover;
+		background-position: center;
+	}
 
 	&__top{
 		padding: 10px;
@@ -17,6 +25,7 @@
 	&__center{
 		color: white;
 		position: relative;
+		top: -50px;
 		width: 90%;
 		margin: auto;
 		text-align: center;
@@ -58,57 +67,74 @@
 		font-size: .875em;
 	}
 	&__bottom{
-		margin: 15px auto 50px;
-		position: relative;
-		z-index: 1;
+		margin: 15px auto 15px;
+		bottom: 0;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 5;
 	}
 	&__scroll-button{
 		color: rgba(255,255,255, .5);
 	}
-}
-.socials{
-	font-size: 16px;
-
-	&__list{
+	&__hidden{
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 100%;
+		min-height: 100vh;
 		display: flex;
-		align-items: center;
-		margin: 0px;
-		padding: 0px;
+		z-index: 5;
+		background-color: blue;
+		transition: 1s;
 	}
-	&__item{
-		list-style: none;
-
-		&:not(:first-child){
-			margin-left: 25px;
-		}
-	}
-	.icon{
-		font-size: 16px;
-		color: white;
-		
-		&:hover{
-			color: #2d47ce;
-		}
+	&__hidden_active{
+		right: 0px;
 	}
 }
 .nav-trigger{
+	position: fixed;
+	z-index: 100;
+	right: 10px;
+	top: 10px;
+	transform-origin: 50%;
 
 	&:hover{
 
 		.nav-trigger__icon{
-			background-color: lighten(blue,25%);
+			background-color: yellow;
 		}
 	}
 
 	&__icon{
+		transition: 1s;
 		display: block;
 		width: 26px;
 		height: 3px;
 		border-radius: 3px;
 		background-color: #fff;
-		
+
 		&:not(:first-child){
 			margin-top: 7px;
 		}
+	}
+}
+.nav-trigger_active{
+	.nav-trigger__icon{
+
+		&:nth-child(1){
+			transform: rotateZ(45deg) translateY(10px) translateX(5px);
+
+		}
+		&:nth-child(3){
+			transform: rotateZ(-45deg) translateY(-10px) translateX(4px);
+		}
+		&:nth-child(2){
+			opacity: 0;
+		}
+	}
+	&:hover .nav-trigger__icon{
+		background-color: red;
+		animation: none;
 	}
 }

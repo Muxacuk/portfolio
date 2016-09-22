@@ -24,9 +24,10 @@ main.main-content
 	section.contacts
 		h2.contacts__title.title КОНТАКТЫ
 		ul.contacts__list
-			-var contacts = {'skype_n':["m-izmaylov","callto:m-izmaylov"]};
-			-each val,index in contacts
+			-var contacts = {'skype_n':["m-izmaylov","callto:m-izmaylov"],'phone_n':["+38(063)7831249","callto:m-izmaylov"],'envelope_n':["m-izmaylov@inbox.ru","mailto:m-izmaylov@inbox.ru"],'map_n':["Днепр, посп Гагарина 57",""]}; //Незавание переменной не меняй!!! В футере тоже использую
+			-each val,index in contacts 
 				li.contacts__item
 					a(href="#{val[1]}").contacts__link
 						+icon(index,'')
 						span= val[0]
+		.map#map

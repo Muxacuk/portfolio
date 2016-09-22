@@ -1,0 +1,31 @@
+.footer{
+	background-color: rgba(42,44,53,.9);
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+	position: relative;
+
+	&__text{
+		color: white;
+		font-weight: 100;
+		display: inline-block;
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 10px;
+	}
+	.contacts__link{
+		color: white;
+		justify-content: center;
+		font-weight: 100;
+
+		&:hover{
+			color: #4080ef;
+		}
+	}
+	&__copy{
+		background-color: #2667d8;
+		margin: 0 -10px -10px;
+		padding: 10px;
+		color: white;
+		font-weight: 100;
+	}
+}
