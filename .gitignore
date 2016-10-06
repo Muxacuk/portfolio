@@ -3,3 +3,4 @@ app/bower
 .sass-cache
 dist
 app/js/foundation.js
+debug.log
