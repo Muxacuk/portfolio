@@ -22,12 +22,13 @@ main.main-content
 									path(d="M 55 10 A 45 45 0 0 1 100 55" fill="none" stroke="blue" stroke-width="20")
 									text( font-size="12" stroke="blue" stroke-width=".5" y="60" x="55" text-anchor="middle")!= index
 	section.contacts
-		h2.contacts__title.title КОНТАКТЫ
-		ul.contacts__list
-			-var contacts = {'skype_n':["m-izmaylov","callto:m-izmaylov"],'phone_n':["+38(063)7831249","callto:m-izmaylov"],'envelope_n':["m-izmaylov@inbox.ru","mailto:m-izmaylov@inbox.ru"],'map_n':["Днепр, посп Гагарина 57",""]}; //Незавание переменной не меняй!!! В футере тоже использую
-			-each val,index in contacts 
-				li.contacts__item
-					a(href="#{val[1]}").contacts__link
-						+icon(index,'')
-						span= val[0]
+		.contacts__data
+			h2.contacts__title.title КОНТАКТЫ
+			ul.contacts__list
+				-var contacts = {'skype_n':["m-izmaylov","callto:m-izmaylov"],'phone_n':["+38(063)7831249","callto:m-izmaylov"],'envelope_n':["m-izmaylov@inbox.ru","mailto:m-izmaylov@inbox.ru"],'map_n':["Днепр, просп Гагарина 57",""]}; //Незавание переменной не меняй!!! В футере тоже использую
+				-each val,index in contacts 
+					li.contacts__item
+						a(href="#{val[1]}").contacts__link
+							+icon(index,'')
+							span= val[0]
 		.map#map

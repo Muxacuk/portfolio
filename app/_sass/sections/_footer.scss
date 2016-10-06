@@ -1,5 +1,5 @@
 .footer{
-	background-color: rgba(42,44,53,.9);
+	background-color: rgba(42,44,53,1);
 	padding: 10px;
 	text-align: center;
 	font-size: 14px;
@@ -9,7 +9,8 @@
 		color: white;
 		font-weight: 100;
 		display: inline-block;
-		border-bottom: 1px solid #ddd;
+		width: 99%;
+		border-bottom: 1px solid rgba(255,255,255,.6);
 		padding-bottom: 10px;
 	}
 	.contacts__link{
@@ -27,5 +28,33 @@
 		padding: 10px;
 		color: white;
 		font-weight: 100;
+	}
+}
+@media only screen and (min-width: 475px){
+	body{
+		position: relative;
+	}
+	.footer{
+		background-color: rgba(42,44,53,.9);
+		position: absolute;
+		width: 100%;
+		left: 0;
+		bottom: 0px;
+		z-index: 100;
+
+		&__contacts{
+			text-align: right;
+		}
+		.contacts__link{
+			display: inline;
+		}
+		&__row{
+			display: flex;
+			align-items: top;
+			justify-content: space-between;
+		}
+		&__copy{
+			opacity: .8;
+		}
 	}
 }

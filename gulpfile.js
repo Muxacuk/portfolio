@@ -9,7 +9,10 @@ var gulp = require("gulp"),
 	svgmin = require('gulp-svgmin'),
 	cheerio = require('gulp-cheerio'),
 	replace = require('gulp-replace'),
-	concat = require('gulp-concat');
+	concat = require('gulp-concat'),
+	tsify = require("tsify"),
+	browserify = require('browserify'),
+	source = require('vinyl-source-stream');
 
 var path = ["node_modules/jquery/dist/jquery.min.js"];
 
@@ -49,17 +52,6 @@ gulp.task('autoprefix', function () {
 		.pipe(gulp.dest('app/css/'));
 });
 
-gulp.task('watch', function(){
-	gulp.watch([
-			'app/index.html',
-			'app/js/**/*.js',
-			'app/css/*.css'
-	]).on('change', browserSync.reload);
-	gulp.watch('app/_sass/**/*',['sass','autoprefix']);
-	gulp.watch('app/_jade/**/*',['jade']);
-	gulp.watch('app/pictures/sprite//*',['spritePng']);
-	gulp.watch('app/pictures/svgIcons/*',['svgSpriteBuild']);
-});
 
 gulp.task('spritePng', function () {
   var spriteData = gulp.src('app/pictures/sprite/*.png').pipe(spritesmith({
@@ -109,11 +101,38 @@ gulp.task('svgSpriteBuild', function () {
 		}))
 		.pipe(gulp.dest('app'));
 });
-gulp.task('jsBuild', function() {
+gulp.task('jsLibs', function() {
 	return gulp.src(path)
 	  .pipe(concat('foundation.js'))
 	  .pipe(gulp.dest('app/js/'))
 });
 
 
-gulp.task('default',['server','watch','jsBuild']);
+gulp.task("jsBuild", function(){
+    return browserify({
+        basedir: 'app',
+        debug: true,
+        entries: ['ts/main.ts']
+    })
+        .plugin(tsify)
+        .bundle()
+    	.on('error', function (error) { console.error(error.toString()); })
+        .pipe(source('main.js'))
+        .pipe(gulp.dest("app/js"));
+});
+
+gulp.task('watch', function(){
+	gulp.watch([
+			'app/index.html',
+			'app/js/**/*.js',
+			'app/css/*.css'
+	]).on('change', browserSync.reload);
+	gulp.watch('app/_sass/**/*',['sass','autoprefix']);
+	gulp.watch('app/_jade/**/*',['jade']);
+	gulp.watch('app/pictures/sprite//*',['spritePng']);
+	gulp.watch('app/pictures/svgIcons/*',['svgSpriteBuild']);
+	gulp.watch('app/ts/**/*',['jsBuild']);
+
+});
+
+gulp.task('default',['server','watch','jsLibs']);

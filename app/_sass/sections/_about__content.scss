@@ -32,8 +32,13 @@
 
 	&__photo{
 		width: 100%;
+		max-width: 475px;
+		display: block;
+		margin: auto;
 	}
 	&__text{
+		max-width: 495px;
+		margin: auto;
 		padding: 10px;
 		text-align: justify;
 	}
@@ -43,7 +48,7 @@
 		position: absolute;
 		height: 180px;
 		width: 100%;
-		top: -180px;
+		top: -179px;
 		left: 0px;
 		background-image: url(../pictures/bg.svg);
 		background-size: 103%;
@@ -55,6 +60,11 @@
 	background-color: #f4f5f0;
 	padding: 15px 10px 25px;
 	text-align: justify;
+	p{
+		max-width: 475px;
+		margin: auto;
+		display: block;
+	}
 
 	&__title{
 		position: relative;
@@ -82,15 +92,18 @@
 	}
 	&__type{
 		margin-top: 25px;
+		list-style: none;
 	}
 	&__item-list{
 		padding: 0px;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: center;
 	}
 	&__item{
 		display: inline-block;
+		max-width: 475px;
+		margin: 0 10px;
 	}
 }
 .contacts{
@@ -130,10 +143,62 @@
 				margin-right: 5px;
 				font-size: 32px;
 			}
+			&:hover{
+				color: #333;
+				.icon{
+					color: darken(blue,20%);
+				}
+			}
 	}
 
 }
 .map{
 	height: 90vh;
 	width: 100%;
+}
+
+@media only screen and (min-width: 475px){
+	.contacts{
+		position: relative;
+		padding: 0px;
+
+		&__data{
+			position: absolute;
+			z-index: 100;
+			bottom: 45%;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: rgba(255,255,255,.9);
+			padding: 20px;
+		}
+	}
+}
+@media only screen and (min-width: 900px){
+	.about-me{
+		padding-top: 150px;
+		width: 50%;
+		background-color: transparent;
+		background-image: url('../pictures/about_bg_left.svg');
+		background-position: top;
+		background-size: cover;		
+		&:before{
+			display: none;
+		}
+	}
+	.skills{
+		padding-top: 150px;
+		width: 50%;
+		background-color: transparent;
+		background-image: url('../pictures/about_bg_right.svg');
+		background-position: top;
+		background-size: cover;
+	}
+	.main-content{
+		margin-top: -150px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.contacts{
+		width: 100%;
+	}
 }

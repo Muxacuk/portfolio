@@ -41,3 +41,12 @@
 		}
 	}
 }
+.socials_footer{
+	border-bottom: none;
+	
+	.socials__list{
+		border-bottom: none;
+		justify-content: flex-start;
+		padding-left: 10px;
+	}
+}
