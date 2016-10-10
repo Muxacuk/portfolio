@@ -4,3 +4,4 @@ app/bower
 dist
 app/js/foundation.js
 debug.log
+typings
