@@ -1,6 +1,8 @@
 include  ../common/mixins
 header.header
 	.header__fixed
+		canvas.header__bg-canvas#header__canvas
+		.header__mountins-cover
 		.header__top
 			.header__left
 				+socials('')
@@ -11,7 +13,6 @@ header.header
 	.header__bottom
 		a(href="#" data-target="about").header__scroll-button.scroll-button
 			+icon('arrow_down','')
-	video(autoplay).header__bg-canvas#header__Canvas
 	.header__hidden
 		+nav('')
 		.header__right
