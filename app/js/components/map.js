@@ -1,5 +1,9 @@
 export function initMap() {
-	var map: any, marker: any,image: any,stylesArray: any,styledMap: any;
+	var map, 
+		marker,
+		image,
+		stylesArray,
+		styledMap;
 
 	map = new google.maps.Map(document.getElementById('map'), {
 	center: {lat: 48.4476198, lng: 35.057252},

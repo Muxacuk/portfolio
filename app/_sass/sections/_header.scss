@@ -5,15 +5,30 @@
 	align-items: center;
 	position: relative;
 
+	&__Canvas{
+		width: 100%;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		height: 100%
+	}
+	&__mountins-cover{
+		background-image: url('../pictures/header_bg.png');
+		background-size: cover; 
+		background-position: center bottom;
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+	}
 	&__fixed{
 		position: fixed;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		height: 100%;
-		background-image: url('../pictures/header_bg.jpg');
-		background-size: cover;
-		background-position: center;
+
 	}
 
 	&__top{
