@@ -2,7 +2,6 @@ include  ../common/mixins
 header.header
 	.header__fixed
 		canvas.header__bg-canvas#header__canvas
-		.header__mountins-cover
 		.header__top
 			.header__left
 				+socials('')
@@ -11,7 +10,7 @@ header.header
 			h1.header__title Измайлов Михаил
 			span.header__subtext Личный сайт frontend разработчика
 	.header__bottom
-		a(href="#" data-target="about").header__scroll-button.scroll-button
+		a(href="#" data-target="about-me").header__scroll-button.scroll-button
 			+icon('arrow_down','')
 	.header__hidden
 		+nav('')

@@ -5,6 +5,7 @@
 .main-content{
 	position: relative;
 	z-index: 3;
+	color: #474b57;
 }
 .about-me{
 	background-color: #f2f0e8;
@@ -60,6 +61,8 @@
 	background-color: #f4f5f0;
 	padding: 15px 10px 25px;
 	text-align: justify;
+	padding: 40px;
+
 	p{
 		max-width: 475px;
 		margin: auto;
@@ -184,14 +187,39 @@
 		&:before{
 			display: none;
 		}
+		.title{
+			font-size: (63em/16);
+			padding: 50px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center center;
+			background-image: url('../pictures/stars2.svg');
+			margin-bottom: 20px;
+		}
 	}
 	.skills{
+		&>p{
+			margin: 0 15px;
+			max-width: 100%;
+		}
 		padding-top: 150px;
 		width: 50%;
 		background-color: transparent;
 		background-image: url('../pictures/about_bg_right.svg');
 		background-position: top;
 		background-size: cover;
+
+		&__title{
+			font-size: 2em;
+		}
+		&__type-title{
+			text-align: left;
+			font-size: (28em/16);
+		}
+		&__item-list{
+			justify-content: flex-start;
+		}
+
 	}
 	.main-content{
 		margin-top: -150px;

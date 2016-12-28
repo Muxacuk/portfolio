@@ -14,13 +14,10 @@ main.main-content
 				li.skills__type
 					h4.skills__type-title Frontend
 					ul.skills__item-list
-						-var items = {'HTML5':'90','CSS3':'85','<tspan dy="-10" dx="-5">JavaScript</tspan><tspan dy="15" dx="-50">& jQuery</tspan>':'70'}
+						-var items = {'HTML5':'75','CSS3':'100','<tspan dy="-10" dx="-5">JavaScript</tspan><tspan dy="15" dx="-50">& jQuery</tspan>':'50'}
 						-each val,index in items
 							li(data-name=index data-val=val).skills__item 
-								svg(width="110" height="110")
-									circle(cx="55" cy="55" r="45" stroke="#dfdcd5" stroke-width="20" fill="none")
-									path(d="M 55 10 A 45 45 0 0 1 100 55" fill="none" stroke="blue" stroke-width="20")
-									text( font-size="12" stroke="blue" stroke-width=".5" y="60" x="55" text-anchor="middle")!= index
+
 	section.contacts
 		.contacts__data
 			h2.contacts__title.title КОНТАКТЫ

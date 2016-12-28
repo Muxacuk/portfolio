@@ -111,6 +111,7 @@ gulp.task('jsBuild', () => {
  return browserify({entries: 'app/js/main.js', extensions: ['.js'], debug: true})
         .transform(babelify,{ presets: ["es2015"], sourceMapsAbsolute: true})
         .bundle()
+        .on('error', (e)=>{console.log(e)})
         .pipe(source('main.js'))
         .pipe(gulp.dest('dist/js/'));
 });
@@ -126,12 +127,12 @@ gulp.task('imgCopy', () => {
 gulp.task('watch', function(){
 	gulp.watch([
 			'dist/*.html',
-			'dist/*.js',
-			'dist/*.css'
+			'dist/js/*.js',
+			'dist/css/*.css'
 	]).on('change', browserSync.reload);
 	gulp.watch('app/_sass/**/*',['sass','autoprefix']);
 	gulp.watch('app/_jade/**/*',['jade']);
-	gulp.watch('app/pictures/sprite//*',['spritePng']);
+	gulp.watch('dist/pictures/sprite//*',['spritePng']);
 	gulp.watch('app/pictures/svgIcons/*',['svgSpriteBuild']);
 	gulp.watch('app/js/**/*',['jsBuild']);
 });
