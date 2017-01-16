@@ -2,19 +2,22 @@ include  ../common/mixins
 header.header
 	.header__fixed
 		canvas.header__bg-canvas#header__canvas
-		.header__top
-			.header__left
-				+socials('')
 		.header__center
 			img(src="img/my_photo.jpg", alt="Измайлов Михаил").header__center-img
 			h1.header__title Измайлов Михаил
 			span.header__subtext Личный сайт frontend разработчика
+	.header__top
+		.header__left
+			+socials('')
+	.header__right
+		a(href="#").nav-trigger
+			-for(var i=0; i<3; i++)
 	.header__bottom
 		a(href="#" data-target="about-me").header__scroll-button.scroll-button
 			+icon('arrow_down','')
 	.header__hidden
+		svg(width='100%' heigth='100%'  viewBox="0 0 100 100" preserveAspectRatio="none").header__cover
+			-for(var i=0; i<10; i++)
+				-for(var j=0; j<10; j++)
+					rect(x=i*10 y=j*10 width='10.2%' height='10.2%' fill="rgba(64,76,121,1)" stroke="rgba(64,76,121,.9)" stroke-width="0")
 		+nav('')
-		.header__right
-				a(href="#").nav-trigger
-					-for(var i=0; i<3; i++)
-						i.nav-trigger__icon

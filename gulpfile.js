@@ -13,7 +13,8 @@ var gulp = require("gulp"),
 	babel = require('gulp-babel'),
 	browserify = require('browserify'),
 	babelify = require('babelify'),
-	source = require('vinyl-source-stream');
+	source = require('vinyl-source-stream'),
+	buffer = require('vinyl-buffer');
 
 var path = ["node_modules/jquery/dist/jquery.min.js"];
 
@@ -111,8 +112,13 @@ gulp.task('jsBuild', () => {
  return browserify({entries: 'app/js/main.js', extensions: ['.js'], debug: true})
         .transform(babelify,{ presets: ["es2015"], sourceMapsAbsolute: true})
         .bundle()
-        .on('error', (e)=>{console.log(e)})
+        .on('error', function (err) {
+        	console.log(err.message);
+        	this.emit('end');
+        })
+        .pipe(plumber())
         .pipe(source('main.js'))
+        .pipe(buffer())
         .pipe(gulp.dest('dist/js/'));
 });
 

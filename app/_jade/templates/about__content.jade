@@ -4,18 +4,19 @@ main.main-content
 		img(src="img/my_photo.jpg", alt="Михаил Измайлов").about-me__photo
 		.about-me__text
 			h3.about-me__title КТО Я
-			p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe dicta accusantium in accusamus temporibus mollitia et nobis doloribus est odio quam error illo ipsam veritatis neque at, ipsa suscipit omnis.
+			p Я frontend-разработчик, с web-технологиями познакомился в 2013 году, но серьезно занялся frontend разработкой около года назад. Прошел курс "Комплексное обучение веб разработкe" от Loftschool. 
+			p Есть опыт коммерческой разработки, удаленно работал верстальщиком в web-студии. Сверстал около 10-макетов различной сложности. Есть опыт в написании и правке JavaScript сценариев для UI-элементов, небольшой опыт в написании кода на PHP. Знаком с OOП, MVC концепциями.
+			p В данный момент являюсь студентом Национального горного университета, обучаюсь по специальности "Программная инженерия и технологии", очно.
 	section.skills
 		h3.skills__title ЧЕМ Я МОГУ БЫТЬ <br> ВАМ ПОЛЕЗЕН
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, ea maiores ut ipsam dolorum debitis blanditiis delectus. Nisi, ipsum et, modi reiciendis porro, dignissimos quos deserunt perspiciatis rem ratione ullam.
+		p London is the capital of Great Britain
 		ul.skills__types-list
-			-for(i=3; i; i--)
+			-var data = {"Frontend":{'HTML5':'75','CSS3':'100','<tspan dy="-10" dx="-5">JavaScript</tspan><tspan dy="15" dx="-50">& jQuery</tspan>':'80'},"Backend":{'PHP':'30','MySQL':'70'},"Workflow":{'Sass':'100','Jade':'100','Git':'50','Gulp':'60','NPM':'70'}}
+			-each item,title in data
 				li.skills__type
-					h4.skills__type-title Frontend
+					h4.skills__type-title=title
 					ul.skills__item-list
-						-var items = {'HTML5':'75','CSS3':'100','<tspan dy="-10" dx="-5">JavaScript</tspan><tspan dy="15" dx="-50">& jQuery</tspan>':'50'}
-						-each val,index in items
+						-each val,index in item
 							li(data-name=index data-val=val).skills__item 
 
 	section.contacts

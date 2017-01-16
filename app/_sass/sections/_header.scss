@@ -37,6 +37,7 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
+		z-index: 100;
 	}
 	&__center{
 		color: white;
@@ -102,21 +103,47 @@
 	&__hidden{
 		position: fixed;
 		top: 0;
-		right: -100%;
+		z-index: 1000;
+		transform: rotate3d(1,0,0,90deg);
+		transition: transform 0s 1s;
 		width: 100%;
 		min-height: 100vh;
 		display: flex;
-		z-index: 1000;
-		background-color: rgba(64,76,121,.9);
-		transition: 1s;
+
+		svg{
+			opacity: .9;
+		}
+		
+		rect{
+			transform: rotate3d(1,1,1,60deg);
+			transform-origin: 50% 50%;
+			opacity: 0;
+			transition: 1.5s;
+		}
 	}
 	&__hidden_active{
-		right: 0px;
+		transition: transform 0s 0s;
+		transform: rotateX(0deg);
+			rect{
+				opacity: 1;
+				transform: rotate3d(1,1,1,0deg);
+			}
+
+		.nav{
+			display: none;
+		}
+	}
+	&__cover{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
 	}
 }
 .nav-trigger{
 	position: fixed;
-	z-index: 100;
+	z-index: 1001;
 	right: 10px;
 	top: 10px;
 	transform-origin: 50%;
