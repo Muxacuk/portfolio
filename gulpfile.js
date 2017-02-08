@@ -1,6 +1,6 @@
 var gulp = require("gulp"),
 	plumber = require('gulp-plumber'),
-	jade = require('gulp-jade'),
+	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
 	browserSync = require("browser-sync"),
 	spritesmith = require('gulp.spritesmith'),
@@ -10,18 +10,15 @@ var gulp = require("gulp"),
 	cheerio = require('gulp-cheerio'),
 	replace = require('gulp-replace'),
 	concat = require('gulp-concat'),
-	babel = require('gulp-babel'),
-	browserify = require('browserify'),
-	babelify = require('babelify'),
-	source = require('vinyl-source-stream'),
-	buffer = require('vinyl-buffer');
+	webpackStream = require('webpack-stream'),
+	webpack = require('webpack');
 
 var path = ["node_modules/jquery/dist/jquery.min.js"];
 
-gulp.task('jade',function () {
-	gulp.src('app/_jade/*.jade')
+gulp.task('pug', function () {
+	gulp.src('app/_jade/*.pug')
 	    .pipe(plumber())
-	    .pipe(jade({
+	    .pipe(pug({
       				pretty: true
     	}))
 	    .pipe(gulp.dest('dist/'));
@@ -109,17 +106,39 @@ gulp.task('jsLibs', function() {
 });
 
 gulp.task('jsBuild', () => {
- return browserify({entries: 'app/js/main.js', extensions: ['.js'], debug: true})
-        .transform(babelify,{ presets: ["es2015"], sourceMapsAbsolute: true})
-        .bundle()
-        .on('error', function (err) {
-        	console.log(err.message);
-        	this.emit('end');
-        })
-        .pipe(plumber())
-        .pipe(source('main.js'))
-        .pipe(buffer())
-        .pipe(gulp.dest('dist/js/'));
+	return gulp.src('app/js/main.js')
+		.pipe(webpackStream({
+			watch: true,
+
+			output: {
+			  filename: 'main.js',
+			  library: 'app'
+			},
+
+			devtool: "source-map",
+
+			module: {
+				rules: [
+					{
+						test: /\.js$/,
+						loader: 'babel-loader',
+						query: {
+							presets: ['es2015']
+						}
+					}
+				]
+			}/*,
+			plugins: [
+				new webpack.optimize.UglifyJsPlugin({
+					compress: {
+						warnings: false,
+						drop_console: true,
+						unsafe: true
+					}
+				})
+			]*/
+		},webpack))
+		.pipe(gulp.dest('dist/js/'));
 });
 
 gulp.task('imgCopy', () => {
@@ -137,10 +156,9 @@ gulp.task('watch', function(){
 			'dist/css/*.css'
 	]).on('change', browserSync.reload);
 	gulp.watch('app/_sass/**/*',['sass','autoprefix']);
-	gulp.watch('app/_jade/**/*',['jade']);
+	gulp.watch('app/_jade/**/*',['pug']);
 	gulp.watch('dist/pictures/sprite//*',['spritePng']);
 	gulp.watch('app/pictures/svgIcons/*',['svgSpriteBuild']);
-	gulp.watch('app/js/**/*',['jsBuild']);
 });
 
-gulp.task('default',['server','watch','jsLibs','imgCopy']);
+gulp.task('default',['server','watch','jsLibs','imgCopy', 'jsBuild']);

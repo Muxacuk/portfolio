@@ -11,7 +11,7 @@ export function initMap() {
 	});
 
 	image = {
-		url: '/pictures/map_marker.svg',
+		url: 'pictures/map_marker.svg',
 		size: new google.maps.Size(35, 45),
 		origin: new google.maps.Point(0, 0),
 		anchor: new google.maps.Point(10, 45)

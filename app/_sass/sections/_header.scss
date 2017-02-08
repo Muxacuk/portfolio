@@ -5,12 +5,20 @@
 	align-items: center;
 	position: relative;
 
-	&__Canvas{
+	&__canvas{
 		width: 100%;
 		position: absolute;
 		z-index: 1;
 		top: 0;
-		height: 100%
+		height: 100%;
+	}
+	&__bg-image{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: 0;
+		height: 100vh;
 	}
 	&__mountins-cover{
 		background-image: url('../pictures/header_bg.png');
@@ -28,7 +36,7 @@
 		flex-direction: column;
 		width: 100%;
 		height: 100%;
-
+		left: 0px;
 	}
 
 	&__top{
@@ -63,7 +71,7 @@
 			top: 0px;
 			height: 100%;
 			width: 100%;
-			opacity: .1;
+			opacity: .8;
 		}
 	}
 
@@ -102,6 +110,7 @@
 	}
 	&__hidden{
 		position: fixed;
+		left: 0px;
 		top: 0;
 		z-index: 1000;
 		transform: rotate3d(1,0,0,90deg);

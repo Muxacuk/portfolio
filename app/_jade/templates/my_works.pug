@@ -1,0 +1,15 @@
+section.my-works
+	.my-works__header
+		h2.my-works__title.title МОИ РАБОТЫ
+	.my-works__body
+		ul.my-works__list
+			-var works = [['Logistics','/works/logistics','Продающая страница. Полный адаптив.','left'],['Cooltech','/works/cooltech','Страница интернет магазина созданная в рамках прохождения обучение на курсе от loftschool.'],['UA Exporters','/works/exporters','Работа над проектом была прекращена еще на этапе верстки, на момент прекращение работы было создано 3 станицы без адаптива (переход по страницам с помощью навигации сайта).'],['Watermark','http://watermark.p-max-p.ru/','Генератор водяных знаков созданный в ходе коллективной разработки на курсе от loftschool. Я писал backend и правил JS.']];
+			-var i=1;
+			each work in works
+				li.my-works__item.my-work
+					a(href=work[1] target="_blank").my-work__link
+						.my-work__img-box
+							img(src=`/img/${work[0]}.png`).my-work__img
+						.my-work__data
+							h3.my-work__title= work[0]
+							//p.my-work__desc=work[2]

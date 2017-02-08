@@ -12,7 +12,7 @@ export class SvgCirle{
 				circle = this.getNode('circle', {cx: 55, cy:55, r:45, stroke:"#dfdcd5", strokeWidth:20, fill:"none"}),
 				progressBar = this.getNode('circle', {cx: 55, cy:55, r:45, opacity:level/100, strokeDashoffset:Math.PI*0.9*(100-level), strokeDasharray: (Math.PI*90), transform: "rotate(-90,55,55)", stroke:"blue", strokeWidth:20, fill:"none"}),
 				textNode = this.getNode('text', {fontSize:12, stroke:"blue", strokeWidth:.5, y:60, x:55, textAnchor:"middle"});
-
+ 
 			textNode.innerHTML = text;
 
 			svg.append(circle);

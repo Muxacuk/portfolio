@@ -5,8 +5,6 @@ export function scrollButtonInit() {
 			let selector = $(this).data("target"),
 				target = $("."+selector).children().first();
 
-			console.log(target);
-
 			$('html, body').animate({scrollTop: target.offset().top},500);
 			event.preventDefault();
 		});
