@@ -138,6 +138,9 @@ gulp.task('jsBuild', () => {
 				})
 			]*/
 		},webpack))
+		.on('error', function handleError() {
+		      this.emit('end'); // Recover from errors
+		})
 		.pipe(gulp.dest('dist/js/'));
 });
 

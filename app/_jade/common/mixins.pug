@@ -17,5 +17,5 @@ mixin socials(mod)
 		ul.socials__list
 			each val,index in items
 				li.socials__item
-					a(href="#{val}" target="_blank").socials__link
+					a(href=val target="_blank").socials__link
 						+icon(index,"")

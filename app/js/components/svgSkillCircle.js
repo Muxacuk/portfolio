@@ -1,5 +1,5 @@
 // create svg images 
-export class SvgCirle{
+export class SvgCircle{
 	constructor(selector){
 		this.elements = $(selector);
 		this.init();
@@ -15,10 +15,10 @@ export class SvgCirle{
  
 			textNode.innerHTML = text;
 
-			svg.append(circle);
-			svg.append(progressBar);
-			svg.append(textNode);
-			el.append(svg);
+			svg.appendChild(circle);
+			svg.appendChild(progressBar);
+			svg.appendChild(textNode);
+			el.appendChild(svg);
 		});
 	}
 	// create svg-node with given paremeters, parameters (nodeName: string, attribures: object)

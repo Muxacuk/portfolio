@@ -1,8 +1,8 @@
 export function navTrigger() {
 	let trigger = document.getElementsByClassName('nav-trigger')[0],
 		nav = document.getElementsByClassName('header__hidden')[0],
-		tiles = document.querySelectorAll('.header__cover rect'),
 		links = document.getElementsByClassName('nav__link');
+
 
 	$(trigger).on('click', (event) => {
 		event.preventDefault();
@@ -11,16 +11,18 @@ export function navTrigger() {
 		$(nav).find('.nav').stop(true,true).fadeToggle(1000);
 	});
 
-	for(let link of links){
-		link.addEventListener('click',(event)=>{
-			let selector = $(link).data('target'),
-				target = $('.'+selector),
-				offset = target.offset().top;
+	for(let i=0; i < links.length; i++){
+		links[i].addEventListener('click', (event)=>{
 
-			$('body, html').animate({scrollTop: offset},1000);
+			let selector = links[i].attributes['data-target'].value,
+				target = document.querySelector('.'+selector),
+				offset = target.offsetTop+window.innerHeight;
+
+			$('body, html').animate({scrollTop: `${offset}`},1000);
+			
 			event.preventDefault();
 
-			if($('.header__hidden').hasClass('header__hidden_active')){
+			if(nav.classList.contains('header__hidden_active')){
 				$('.nav-trigger').click();
 			}
 		});
